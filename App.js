@@ -1,11 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { DittoProvider, DittoComponent } from "ditto-react";
+import source from "./ditto";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <DittoProvider source={source}>
+        <Text>
+          <DittoComponent componentId="example-component" />
+        </Text>
+        <StatusBar style="auto" />
+      </DittoProvider>
     </View>
   );
 }
@@ -13,8 +19,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
